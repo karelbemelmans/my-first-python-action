@@ -5,6 +5,6 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
-        'pytest==6.2.4',
+        'pytest==8.3.4',
     ],
 )
