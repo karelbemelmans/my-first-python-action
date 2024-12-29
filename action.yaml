@@ -1,0 +1,29 @@
+name: "My First Python action"
+description: "It's just a simple Hello World action."
+
+inputs:
+  who:
+    description: "Who should we greet?"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set python3
+      uses: actions/setup-python@v2
+      with:
+        python-version: "3.11.7"
+
+    - name: Install Python packages
+      shell: bash
+      env:
+        GH_ACTION_PATH: ${{ github.action_path }}
+      run: |
+        pip install -e ${GH_ACTION_PATH}/scripts
+
+    - name: Run Python script
+      shell: bash
+      env:
+        GH_ACTION_PATH: ${{ github.action_path }}
+      run: |
+        python3 ${GH_ACTION_PATH}/scripts/action.py --who "${{ inputs.who }}"
