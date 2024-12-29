@@ -10,7 +10,8 @@ def main():
     print("::notice file=entrypoint.sh,line=11::Checkpoint reached")
 
     # The output of our action
-    print("Helo there %s" % args.who)
+    result = "Helo there %s" % args.who
+    print(f'::set-output name=greeting::{result}')
 
 
 if __name__ == "__main__":
