@@ -1,4 +1,5 @@
 import argparse
+import os
 
 
 def main():
@@ -9,9 +10,12 @@ def main():
     # Do some Github feedback stuff
     print("::notice file=entrypoint.sh,line=11::Checkpoint reached")
 
-    # The output of our action
-    result = "Helo there %s" % args.who
-    print(f'::set-output name=greeting::{result}')
+    # Do our magic
+    result = ("Helo there %s" % args.who)
+
+    # Set the output variable for Github Actions
+    with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:
+        fh.write(f'greeting={result}\n')
 
 
 if __name__ == "__main__":
