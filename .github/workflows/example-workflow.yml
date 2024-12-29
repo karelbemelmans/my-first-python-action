@@ -1,0 +1,12 @@
+name: Example workflow using our action
+on:
+  workflow_dispatch:
+
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+    steps:
+      - name: My first Python action
+        uses: karelbemelmans/my-first-python-action@main
+        with:
+          who: "John Connor"
