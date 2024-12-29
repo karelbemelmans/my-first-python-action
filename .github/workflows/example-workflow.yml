@@ -13,4 +13,5 @@ jobs:
           who: "John Connor"
 
       - name: Show greeting
-        run: echo "Hello, ${{ steps.hello-world.outputs.greeting }}"
+        run: |
+          echo "Hello, ${{ steps.hello-world.outputs.greeting }}"

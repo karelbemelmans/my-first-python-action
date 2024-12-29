@@ -17,14 +17,9 @@ def main():
     # Do the actual call
     greeting = greet(args.who)
 
-    try:
-        # Set the output variable for Github Actions
-        with open(os.environ.get('GITHUB_OUTPUT', '/tmp/output.txt'), 'a') as fh:
-            fh.write(f'greeting={greeting}\n')
-
-    # We don't want to fail the script if the file is not found
-    except FileNotFoundError as e:
-        pass
+    # Set the output variable for Github Actions
+    with open(os.environ.get('GITHUB_OUTPUT'), 'a') as fh:
+        fh.write(f'greeting={greeting}\n')
 
 
 if __name__ == "__main__":
