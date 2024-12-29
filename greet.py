@@ -1,10 +1,8 @@
 import argparse
 import os
 
-
 def greet(who=None):
     return f"Hello, {who}!"
-
 
 def main():
     parser = argparse.ArgumentParser(description='Collect input arguments')
