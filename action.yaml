@@ -6,6 +6,11 @@ inputs:
     description: "Who should we greet?"
     required: true
 
+outputs:
+  greeting:
+    description: "The greeting that was generated."
+    value: ${{ steps.run-python.outputs.greeting }}
+
 runs:
   using: "composite"
   steps:
@@ -22,6 +27,7 @@ runs:
         pip install -e ${GH_ACTION_PATH}/scripts
 
     - name: Run Python script
+      id: run-python
       shell: bash
       env:
         GH_ACTION_PATH: ${{ github.action_path }}
