@@ -17,7 +17,7 @@ runs:
     - name: Set python3
       uses: actions/setup-python@v2
       with:
-        python-version: "3.13.1"
+        python-version: "3.12"
 
     - name: Install Python packages
       shell: bash
