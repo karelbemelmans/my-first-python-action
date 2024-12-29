@@ -16,6 +16,8 @@ runs:
   steps:
     - name: Set python3
       uses: actions/setup-python@v5
+      env:
+        GH_ACTION_PATH: ${{ github.action_path }}
       with:
         python-version-file: "${GH_ACTION_PATH}/scripts/.python-version"
         cache: "pip"
