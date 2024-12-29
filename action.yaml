@@ -18,8 +18,6 @@ runs:
       uses: actions/setup-python@v5
       with:
         python-version-file: "${{ github.action_path }}/scripts/.python-version"
-        cache: "pip"
-        cache-dependency-path: "setup.py"
 
     - name: Install Python packages
       shell: bash
