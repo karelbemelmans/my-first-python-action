@@ -16,12 +16,10 @@ runs:
   steps:
     - name: Set python3
       uses: actions/setup-python@v5
-      env:
-        GH_ACTION_PATH: ${{ github.action_path }}
       with:
-        python-version-file: "${GH_ACTION_PATH}/scripts/.python-version"
+        python-version-file: "${{ github.action_path }}/scripts/.python-version"
         cache: "pip"
-        cache-dependency-path: "${GH_ACTION_PATH}/scripts/setup.py"
+        cache-dependency-path: "${{ github.action_path }}/scripts/setup.py"
 
     - name: Install Python packages
       shell: bash
