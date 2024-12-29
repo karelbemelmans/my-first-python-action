@@ -12,7 +12,7 @@ runs:
     - name: Set python3
       uses: actions/setup-python@v2
       with:
-        python-version: "3.11.7"
+        python-version: "3.13.1"
 
     - name: Install Python packages
       shell: bash
@@ -26,4 +26,4 @@ runs:
       env:
         GH_ACTION_PATH: ${{ github.action_path }}
       run: |
-        python3 ${GH_ACTION_PATH}/scripts/action.py --who "${{ inputs.who }}"
+        python3 ${GH_ACTION_PATH}/scripts/entry.py --who "${{ inputs.who }}"

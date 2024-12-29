@@ -6,11 +6,11 @@ jobs:
   hello-world:
     runs-on: ubuntu-latest
     steps:
-      - name: My first Python action
+      - name: Run Python action
         id: hello-world
         uses: karelbemelmans/my-first-python-action@main
         with:
           who: "John Connor"
 
-      - name: My first Python action
+      - name: Show greeting
         run: echo "Hello, ${{ steps.hello-world.outputs.greeting }}"
