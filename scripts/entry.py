@@ -18,8 +18,11 @@ def main():
     greeting = greet(args.who)
 
     # Set the output variable for Github Actions
-    with open(os.environ.get('GITHUB_OUTPUT'), 'a') as fh:
-        fh.write(f'greeting={greeting}\n')
+    try:
+        with open(os.environ.get('GITHUB_OUTPUT'), 'a') as fh:
+            fh.write(f'greeting={greeting}\n')
+    except Exception as e:
+        print(f"GITHUB_OUT: greeting={greeting}")
 
 
 if __name__ == "__main__":
