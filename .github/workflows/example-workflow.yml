@@ -14,4 +14,4 @@ jobs:
 
       - name: Show greeting
         run: |
-          echo "Hello, ${{ steps.hello-world.outputs.greeting }}"
+          echo "${{ steps.hello-world.outputs.greeting }}"
