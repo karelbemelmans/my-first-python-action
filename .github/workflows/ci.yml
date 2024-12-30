@@ -18,14 +18,16 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version-file: .python-version
+          python-version-file: src/.python-version
 
       - name: Install dependencies
+        working-directory: src
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
       - name: Test with pytest
+        working-directory: src
         run: |
           pip install pytest pytest-cov
           pytest

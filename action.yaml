@@ -17,13 +17,13 @@ runs:
     - name: Set python3
       uses: actions/setup-python@v5
       with:
-        python-version-file: "${{ github.action_path }}/.python-version"
+        python-version-file: "${{ github.action_path }}/src/.python-version"
 
     # - name: Install Python packages
     #   shell: bash
-    #   run: pip install -i ${{ github.action_path }}/requirements.txt
+    #   run: pip install -i ${{ github.action_path }}/src/requirements.txt
 
     - name: Run Python script
       id: run-python
       shell: bash
-      run: python3 ${{ github.action_path }}/greet.py --who "${{ inputs.who }}"
+      run: python3 ${{ github.action_path }}/src/greet.py --who "${{ inputs.who }}"
